@@ -32,7 +32,7 @@ async function example() {
         "--single-process",
       ],
       ignoreHTTPSErrors: true,
-      executablePath: process.env.CHROME_BIN || puppeteer.executablePath(),
+      executablePath: '/usr/bin/chromium',
     });
     const page = await browser.newPage();
     // remove timeout limit
