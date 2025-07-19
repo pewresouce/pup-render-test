@@ -31,6 +31,7 @@ async function example() {
         "--no-zygote",
         "--single-process",
       ],
+      ignoreHTTPSErrors: true,
       executablePath: process.env.CHROME_BIN || puppeteer.executablePath(),
     });
     const page = await browser.newPage();
