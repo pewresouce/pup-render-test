@@ -1,6 +1,7 @@
 #!/bin/bash
-# Install dependencies required for Puppeteer
+# Install Chromium and dependencies
 apt-get update && apt-get install -y \
+  chromium \
   ca-certificates \
   fonts-liberation \
   libappindicator3-1 \
