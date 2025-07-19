@@ -59,8 +59,8 @@ let rc = async () => {
   let timeZone = "Africa/Lagos";
   let now = moment.tz(timeZone);
 
-  let t1 = now.clone().set({ hour: 7, minute: 0, second: 0 });
-  let t2 = now.clone().set({ hour: 8, minute: 0, second: 0 });
+  let t1 = now.clone().set({ hour: 12, minute: 0, second: 0 });
+  let t2 = now.clone().set({ hour: 13, minute: 0, second: 0 });
 
   setTimeout(async () => {
     if (now.isBetween(t1, t2)) {
@@ -74,7 +74,7 @@ let rc = async () => {
       console.log("Not within 7am - 8am time interval");
     }
     await rc();
-  }, 38 * 60 * 1000); // 38 minutes in milliseconds
+  }, 20000); // 38 minutes in milliseconds
 };
 
 rc();
