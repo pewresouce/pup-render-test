@@ -64,17 +64,17 @@ let rc = async () => {
 
   setTimeout(async () => {
     if (now.isBetween(t1, t2)) {
-      console.log("Within 7am - 8am time interval");
+      console.log("Within 4am - 5am time interval");
       let ex = await example();
       if (ex != undefined) {
         console.log(ex);
         console.log(`starting new iteration...${iteration}`);
       }
     } else {
-      console.log("Not within 7am - 8am time interval");
+      console.log("Not within 4am - 5am time interval");
     }
     await rc();
-  }, 20000); // 38 minutes in milliseconds
+  }, 42 * 60 * 1000); // 42 minutes in milliseconds
 };
 
 rc();
