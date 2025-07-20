@@ -1,27 +1,18 @@
-#!/bin/bash
-# Install Chromium and dependencies
-apt-get update && apt-get install -y \
-  chromium \
-  ca-certificates \
-  fonts-liberation \
-  libappindicator3-1 \
-  libasound2 \
-  libatk-bridge2.0-0 \
-  libatk1.0-0 \
-  libcups2 \
-  libdbus-1-3 \
-  libgdk-pixbuf2.0-0 \
-  libnspr4 \
-  libnss3 \
-  libx11-xcb1 \
-  libxcomposite1 \
-  libxdamage1 \
-  libxrandr2 \
-  xdg-utils \
-  libgbm1 \
-  libpango-1.0-0 \
-  libpangocairo-1.0-0 \
-  libxss1 \
-  libxtst6
-# Install Node.js dependencies
+set -o errexit
+
 npm install
+
+PUPPETEER_CACHE_DIR=/opt/render/.cache/puppeteer
+mkdir -p $PUPPETEER_CACHE_DIR
+
+npx puppeteer browsers install chrome
+
+if [[ ! -d $PUPPETEER_CACHE_DIR ]]; then
+echo "...Copying Puppeteer Cache from Build Cache"
+# Copying from the actual path where Puppeteer stores its Chrome binary
+cp -R /opt/render/project/src/.cache/puppeteer/chrome/ $PUPPETEER_CACHE_DIR
+else
+echo "...Storing Puppeteer Cache in Build Cache"
+cp -R $PUPPETEER_CACHE_DIR /opt/render/project/src/.cache/puppeteer/chrome/
+fi
+
