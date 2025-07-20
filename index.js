@@ -59,8 +59,8 @@ let rc = async () => {
   let timeZone = "Africa/Lagos";
   let now = moment.tz(timeZone);
 
-  let t1 = now.clone().set({ hour: 12, minute: 0, second: 0 });
-  let t2 = now.clone().set({ hour: 13, minute: 0, second: 0 });
+  let t1 = now.clone().set({ hour: 4, minute: 0, second: 0 });
+  let t2 = now.clone().set({ hour: 5, minute: 0, second: 0 });
 
   setTimeout(async () => {
     if (now.isBetween(t1, t2)) {
