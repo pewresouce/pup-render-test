@@ -32,7 +32,7 @@ async function example() {
         "--single-process",
       ],
       ignoreHTTPSErrors: true,
-      executablePath: '/usr/bin/chromium',
+     
     });
     const page = await browser.newPage();
     // remove timeout limit
